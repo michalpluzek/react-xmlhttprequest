@@ -24,7 +24,7 @@ class App extends React.Component {
 
   render() {
     const users = this.state.users.map((user) => (
-      <div>
+      <div key={user.id}>
         <h3>{user.name}</h3>
         <p>{user.address.street}</p>
       </div>
