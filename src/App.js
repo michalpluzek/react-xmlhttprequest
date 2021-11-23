@@ -10,7 +10,17 @@ class App extends React.Component {
   componentDidMount() {
     const xhr = new XMLHttpRequest();
     xhr.open("GET", this.baseURL, true);
-    xhr.onload = () => {
+    // xhr.onload = () => {
+    //   if (xhr.status === 200) {
+    //     const users = JSON.parse(xhr.response);
+
+    //     this.setState({
+    //       users,
+    //     });
+    //   }
+    // };
+
+    xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
         const users = JSON.parse(xhr.response);
 
@@ -18,7 +28,8 @@ class App extends React.Component {
           users,
         });
       }
-    };
+    });
+
     xhr.send();
   }
 
